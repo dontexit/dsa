@@ -12,9 +12,11 @@ class queue {
             const h = new Node(value)
             this.head = h
             this.tail = h
+            this.length=1;
         } else {
             head = null
             tail = null
+            this.length=0
         }
     }
     enque(value) {
@@ -27,6 +29,7 @@ class queue {
             this.tail.previous = tail
             this.tail = tail
         }
+        this.length++
 
     }
 
@@ -45,6 +48,9 @@ class queue {
             }
 
         }
+    if(this.length>0){
+        this.length--
+    }
 
     }
 }
@@ -58,9 +64,14 @@ q1.enque(3)
 q1.enque('test')
 console.log(q1)
 q1.dequeue()
+console.log(q1)
 q1.dequeue()
+console.log(q1)
 q1.dequeue()
+console.log(q1)
 q1.dequeue()
+console.log(q1)
 q1.dequeue()
+console.log(q1)
 q1.dequeue()
 console.log(q1)

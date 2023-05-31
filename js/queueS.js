@@ -1,21 +1,26 @@
 class Node {
-    constructor(value){
-        this.value=value
+    constructor(value) {
+        this.value = value
     }
 
     value = null
     next = null;
 }
 
-class QuesSingle {
+class singleQueue {
     constructor(value = undefined) {
         if (value) {
             const node = new Node(value)
             node.next = null
             this.head = node
             this.tail = node
-
+            this.length = 1
+        } else {
+            this.head = null;
+            this.tail = null;
+            this.length = 0;
         }
+
     }
 
     enqueue(value) {
@@ -29,6 +34,7 @@ class QuesSingle {
             this.head = node
             this.tail = node
         }
+        this.length++
     }
 
     dequeue() {
@@ -37,15 +43,38 @@ class QuesSingle {
                 const temp = this.tail
                 this.tail = temp.next
                 temp.next = null
-                temp.value =null 
+                temp.value = null
             }
-            else{
-                this.tail=null;
-                this.head=null
+            else {
+                this.tail = null;
+                this.head = null
             }
         }
-        
+
+        if (this.length > 0) {
+            this.length--
+        }
+
     }
 
 }
+q=new singleQueue()
+q.enqueue(1)
+console.log(q)
+q.enqueue(2)
+console.log(q)
+q.enqueue(3)
+console.log(q)
+q.dequeue()
+console.log(q)
+q.dequeue()
+console.log(q)
+q.dequeue()
+console.log(q)
+q.dequeue()
+console.log(q)
+
+
+
+
 
